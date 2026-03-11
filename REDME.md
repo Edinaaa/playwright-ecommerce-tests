@@ -35,6 +35,9 @@ Exploratory testing was used to observe application behavior during non-happy pa
 Tests include UI state assertions such as cart badge count to ensure visible feedback matches application state.
 
 Identified issues and observations are documented in the BUG_NOTES.md file.
+## Test Design
+
+Tests follow the Page Object Model pattern and reuse common actions such as login through helper functions to keep the test suite maintainable.
 ## Project Structure
 
 tests/          → Test scenarios and assertions  

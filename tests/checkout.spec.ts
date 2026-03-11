@@ -1,17 +1,15 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { login } from './helpers/login';
 import { ProductsPage } from '../pages/ProductsPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 
 test('User can complete checkout successfully', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+
+  await login(page);
   const productsPage = new ProductsPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
-
-  await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
 
   await productsPage.addFirstProductToCart();
   await productsPage.goToCart();
@@ -26,13 +24,11 @@ test('User can complete checkout successfully', async ({ page }) => {
 });
 
 test('Checkout shows error when required information is missing', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+  await login(page);
   const productsPage = new ProductsPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
 
-  await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
 
   await productsPage.addFirstProductToCart();
   await productsPage.goToCart();

@@ -1,15 +1,12 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { login } from './helpers/login';
 import { ProductsPage } from '../pages/ProductsPage';
 import { CartPage } from '../pages/CartPage';
 
 test('User can add and remove a product from cart', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+  await login(page);
   const productsPage = new ProductsPage(page);
   const cartPage = new CartPage(page);
-
-  await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
 
   await productsPage.addFirstProductToCart();
   await productsPage.goToCart();
@@ -34,9 +31,7 @@ test('User can add and remove a product from cart', async ({ page }) => {
 
 
 test('products should sort by price low to high', async ({ page }) => {
-  const loginPage = new LoginPage(page);
- await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
+  await login(page);
 
   await page.locator('[data-test="product-sort-container"]').selectOption('lohi');
 
@@ -50,10 +45,7 @@ test('products should sort by price low to high', async ({ page }) => {
 });
 
 test('cart should retain items after navigating to another page', async ({ page }) => {
-  const loginPage = new LoginPage(page);
- await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
-
+  await login(page);
 
   await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
 
