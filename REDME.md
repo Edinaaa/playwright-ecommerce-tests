@@ -15,6 +15,7 @@ Tests follow the Page Object Model to separate test logic from page structure an
 - Playwright
 - TypeScript
 - Node.js
+- GitHub Actions (CI pipeline)
 
 ## How to run the tests
 1. Install dependencies:
