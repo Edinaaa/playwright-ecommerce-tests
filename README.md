@@ -52,11 +52,11 @@ Tests follow the Page Object Model pattern and reuse common actions such as logi
 ## Project Structure
 
 pages/ - Page Object Model classes  
-tests/ – Automated test scripts (Playwright)
-test-cases/ – Manual test cases
-bug-reports/ – Documented defects
-test-plan/ – Testing strategy and scope
-test-summary/ – Final testing report
+tests/ – Automated test scripts (Playwright)  
+test-cases/ – Manual test cases  
+bug-reports/ – Documented defects  
+test-plan/ – Testing strategy and scope  
+test-summary/ – Final testing report 
 
 ## CI Pipeline
 

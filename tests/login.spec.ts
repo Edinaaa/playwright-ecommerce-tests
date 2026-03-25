@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
-test('User can log in with valid credentials', async ({ page }) => {
+test('User can log in with valid credentials @smoke', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();
@@ -10,7 +10,7 @@ test('User can log in with valid credentials', async ({ page }) => {
   await expect(page).toHaveURL(/inventory.html/);
 });
 
-test('User cannot log in with invalid credentials', async ({ page }) => {
+test('User cannot log in with invalid credentials @smoke', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();

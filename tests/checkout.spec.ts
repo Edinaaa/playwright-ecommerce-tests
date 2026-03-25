@@ -4,7 +4,7 @@ import { ProductsPage } from '../pages/ProductsPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 
-test('User can complete checkout successfully', async ({ page }) => {
+test('User can complete checkout successfully @smoke', async ({ page }) => {
 
   await login(page);
   const productsPage = new ProductsPage(page);
@@ -23,7 +23,7 @@ test('User can complete checkout successfully', async ({ page }) => {
   await expect(page).toHaveURL(/checkout-complete.html/);
 });
 
-test('Checkout shows error when required information is missing', async ({ page }) => {
+test('Checkout shows error when required information is missing @smoke', async ({ page }) => {
   await login(page);
   const productsPage = new ProductsPage(page);
   const cartPage = new CartPage(page);
